@@ -1,0 +1,129 @@
+<div class="home">
+  <app-header></app-header>
+  <div class="carousel-container"> 
+    <div id="carouselMovieIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselMovieIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselMovieIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselMovieIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="poster-container">
+              <img class="d-block w-100" src="../assets/Bitmap1.jpg" alt="First slide">
+              <div class="poster-detail">
+                <h4 style="font-weight: bold">WRATH OF THE TITANS</h4>
+              </div>
+          </div>                    
+        </div>
+        <div class="carousel-item">
+            <div class="poster-container">
+                <img class="d-block w-100" src="../assets/Bitmap1.jpg" alt="Second slide">
+                <div class="poster-detail">
+                  <h4 style="font-weight: bold">WRATH OF THE TITANS</h4>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="poster-container">
+                <img class="d-block w-100" src="../assets/Bitmap1.jpg" alt="Third slide">
+                <div class="poster-detail">
+                  <h4 style="font-weight: bold">WRATH OF THE TITANS</h4>
+                </div>
+            </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="movie-list-container">
+    <div class="tab-container">	
+      <div class="row">
+        <div class="col-md-9 no-padding">
+            <ul  class="nav nav-pills">
+                <li [ngClass]="{'active': activeTab == 1}">
+                  <a href="#" (click)="activeTab = 1" data-toggle="tab">Popular</a>
+                </li>
+                <li [ngClass]="{'active': activeTab == 2}">
+                  <a href="#" (click)="activeTab = 2" data-toggle="tab">Top Rated</a>
+                </li>
+                <li [ngClass]="{'active': activeTab == 3}">
+                  <a href="#" (click)="activeTab = 3" data-toggle="tab">Upcoming</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Genre</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Item 1</a>
+                      <a class="dropdown-item" href="#">Item 2</a>              
+                    </div>
+                </li>                
+              </ul>
+        </div>
+        <div class="col-md-3 no-padding">
+            <div class="view-mode">
+              <input type="image" class="image m-r-5" src="../assets/collection-icon.png" />
+              <input type="image" class="image" src="../assets/list-icon.png" />
+            </div>
+        </div>
+      </div>      
+      
+      <div class="tab-content clearfix">
+        <div class="tab-pane" [ngStyle]="{'display':activeTab == 1 ? 'inline-block' : 'none' }">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 image-item" *ngFor="let movie of popularMovies">
+              <img class="w-100" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+              <div class="col-md-2 year">{{getYear(movie.release_date)}}</div>
+              <div class="row movie-content">
+                <div class="movie-title">{{movie.title}}</div>                               
+              </div>
+            </div>            
+          </div>
+          <div class="items-loading" *ngIf="isPopularMovieLoading">           
+              <img style="width: 40px; height: 30px;" src="../assets/loading-icon.png" />
+              <br/>
+              <span>Loading</span>            
+          </div>                
+        </div>
+        <div class="tab-pane" [ngStyle]="{'display':activeTab == 2 ? 'inline-block' : 'none' }">
+          <div class="row">
+            <div class="col-md-3 col-sm-6  image-item" *ngFor="let movie of topRatedMovies">
+              <img class="w-100" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+              <div class="col-md-2 year">{{getYear(movie.release_date)}}</div>
+              <div class="row movie-content">
+                <div class="movie-title">{{movie.title}}</div>                               
+              </div>
+            </div>
+          </div>
+          <div class="items-loading" *ngIf="isTopRatedMovieLoading">             
+              <img style="width: 40px; height: 30px;" src="../assets/loading-icon.png" />
+              <br/>
+              <span>Loading</span>              
+            </div>
+        </div>
+        <div class="tab-pane" [ngStyle]="{'display':activeTab == 3 ? 'inline-block' : 'none' }">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 image-item" *ngFor="let movie of upcomingdMovies">
+              <img class="w-100" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+              <div class="col-md-2 year">{{getYear(movie.release_date)}}</div>
+              <div class="row movie-content">
+                <div class="movie-title">{{movie.title}}</div>                               
+              </div>
+            </div>
+          </div>
+          <div class="items-loading" *ngIf="isUpcomingdMovieLoading">              
+              <img style="width: 40px; height: 30px;" src="../assets/loading-icon.png" />
+              <br/>
+              <span>Loading</span>             
+            </div>
+        </div>
+
+        <div infiniteScroll 
+            [infiniteScrollUpDistance] = "2"
+            [infiniteScrollThrottle] = "1000"
+            (scrolled) = "onScroll()"
+          >
+          </div>       
+      </div>
+    </div>
+  </div>
+</div>

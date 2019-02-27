@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    z-index: 15;
+    position: relative;
+    color: white;
+    padding-top: 14px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.search {    
+    width: 20px;
+    padding-top: 5px;
+}
+.header-right-panel {
+    float: right;
+    button {
+        background-color: #FF0079;
+        color: white;
+        border: none;
+        width: 70px;
+        height: 25px;
+    }
+    button.login-btn {
+        background: transparent;
+    }   
+}

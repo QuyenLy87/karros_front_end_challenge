@@ -1,0 +1,90 @@
+.carousel-container {
+    max-height: 200px;
+    line-height: 42px;
+    display: inline-block;
+    margin-top: -50px;
+}
+.poster-container {
+    position: relative;
+}
+.movie-list-container {
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.carousel .carousel-indicators li {
+    width: 20px;
+    height: 7px;
+    border-radius: 2px;
+}
+.carousel .carousel-indicators li.active {
+    background-color: #FF0079;
+}
+.tab-container > div.row {
+    border-bottom: 1px solid #e7e7e8;
+    margin-left: 0px;
+    margin-right: 0px
+}
+.tab-container .nav li {
+    margin-right: 35px;
+    height: 27px;
+    font-size: 17px;    
+    a {
+        color: #666669;
+    }
+}
+.tab-container .nav li .nav-link {
+    background-color: transparent;
+    color: #666669;
+    padding: 0px;
+}
+.tab-container .nav li.active {
+    border-bottom: 2px solid #FF0079;    
+}
+.tab-container .nav li.active a {
+    color: #FF0079;
+}
+.tab-container a:hover {
+    text-decoration: none;
+}
+.tab-container .view-mode {
+    float: right;
+}
+.tab-pane {
+    width: 100%;
+}
+.tab-content {
+    padding-top: 20px;
+}
+.view-mode .image {
+    width: 20px;
+    height: 20px;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.poster-detail {
+    display: inline;
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    color: white;
+  }
+  .items-loading {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .image-item {
+    position: relative;
+    .movie-content .movie-title{
+        background-color: white;
+    }
+  }
+  .image-item .year {
+    position: absolute;
+    bottom: 30px;
+    color: white;
+  }
+  .movie-title {
+      margin-left: 15px;
+  }
